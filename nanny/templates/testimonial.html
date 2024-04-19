@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+    <!-- MAIN -->
+
+    <div class="slide-item overlay" style="background-image: url('./static/images/slider-7.jpg')">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6 align-self-center">
+            <h1 class="heading mb-3">Testimonials</h1>
+            <p class="lead text-white mb-5">Why should you believe us? You don’t have to, but here are some genuine feedbacks:)</p>
+            <p><a href="contact.html" class="btn btn-primary">Get In Touch</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_1.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">Elizabeth was phenomenal. entirely skilled and I felt totally calm leaving the children. returned home to cheerful smiley kids, and a spotless house. 10/10</p>
+                <cite class="author">Megan Wambui</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_2.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">Miriam was such a warm and caring character. It was obvious the amount she adores kids and my children get used to her in a split second.Many thanks! You all are astonishing!</p>
+                <cite class="author">Stacy Mukami</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_3.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">Shiku was impressive. The entire booking process was simple and what I preferred best is everything was affirmed and obviously conveyed through each progression.</p>
+                <cite class="author">David Kibet</cite>
+              </blockquote>
+            </div>
+          </div>
+
+
+
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_4.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">Thank you for sending Anne out to mind our young ladies the previous evening.  We express gratitude towards the Nanny Connect Program.</p>
+                <cite class="author">Eli Mwenda</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_5.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">Nabwire was benevolent and curious to take care of my children. Correspondence was extraordinary and consoling while I was out. Can hardly to wait to book again.  </p>
+                <cite class="author">Naisula</cite>
+              </blockquote>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+            <div class="testimonial text-center">
+              <img src="./static/images/person_6.jpg" alt="Image" class="img-fluid">
+              <blockquote>
+                <p class="quote">The children were so eager to let me know how decent Anyango was the point at which they woke toward the beginning of the day. Thank you and much obliged.</p>
+                <cite class="author">Nekesa Robina</cite>
+              </blockquote>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+      <div class="site-section bg-primary">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
+              <img src="./static/images/about.png" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 col-lg-5 ml-auto">
+              <div class="section-heading">
+                <h2 class="heading mb-3 text-white">The Experienced Babysitter Kenyan Families Trust</h2>
+
+                <p class="text-white">Are you searching for excellent childcare services? At Nanny Connect Program, we offer a range of professional babysitting and nannying services to cater for any childcare needs. Our number one priority is the wellbeing of your little cherub. </p>
+                <p class="mb-4 text-white">We go above and beyond to create a safe environment and put a smile on their face. It’s no wonder we’re one of the top-rated babysitting agencies in Kenya!</p>
+                <p class="text-white mb-5"><strong class="h3">&ldquo;We care for mothers and their children&rdquo;</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div class="site-footer bg-light">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <h2 class="footer-heading mb-4">About</h2>
+              <p>At Nanny Connect, our mission is to provide professional, tailored and affordable babysitting services to create a stress-free experience for parents.</p>
+              <div class="my-5 social">
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+            <div class="col-lg-8">
+              <div class="row">
+                <div class="col-lg-2">
+
+                </div>
+                <div class="col-lg-5">
+                  <h2 class="footer-heading mb-4">Quick Links</h2>
+                  <ul class="list-unstyled">
+
+                    <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                    <li><a href="{% url 'about' %}">About Us</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-5">
+                  <h2 class="footer-heading mb-4">Helpful Link</h2>
+                  <ul class="list-unstyled">
+                    <li><a href="{% url 'testimonial' %}">Testimonials</a></li>
+                    <li><a href="{% url 'index' %}">Contact Us</a></li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+<!-- .site-wrap -->
+
+{% endblock %}

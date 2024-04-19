@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+    <!-- MAIN -->
+
+
+
+    <div class="slide-item overlay" style="background-image: url('../static/images/slider-9.jpg'); background-color: rgba(0,0,0,0,1); height:40vh; min-height:2vh;" >
+      <div class="container" style="height:40vh; min-height:2vh;">
+        <div class="row justify-content-center text-center" style="height:50vh; min-height:2vh;" >
+          <div class="col-lg-6 align-self-center">
+            <p class="lead text-white mb-5">Below is a list of all the Nannies available based off of your filters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section" style="padding-top: 40px; padding-bottom: 20px;">
+      <div class="container">
+        <div class="row justify-content-center text-center">
+
+
+    {% if filtered_nannies %}
+
+    <h2 class="text-black"> Found {{filtered_nannies|length}} nannies for the filtered terms you chose.</h2>
+
+    {% else %}
+
+    <h2 class="text-black"> Found 0 nannies for the filtered terms you chose.</h2>
+
+    {% endif %}
+
+      </div>
+      </div>
+    </div>
+
+    {% if filtered_nannies %}
+
+    <div class="site-section" style="padding-top: 0px;">
+      <div class="container">
+        <div class="row">
+          {% for nanny in filtered_nannies %}
+          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+            <div class="service">
+              <a href="#" class="d-block"  data-toggle="modal" data-target="#nanny-{{nanny.id}}"><img src="{{nanny.image.url}}" alt="Image" class="img-fluid"></a>
+              <div class="service-inner">
+                <h3>{{nanny.first_name}} {{nanny.last_name}}</h3>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal  -->
+            <div class="modal fade" id="nanny-{{nanny.id}}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body" style="padding-top: 0em;">
+                    <div class="row">
+                        <div class="service">
+                          <a href="#" class="d-block"><img src="{{nanny.image.url}}" alt="Image" class="img-fluid"></a>
+                          <div class="service-inner">
+                            <h3>{{nanny.first_name}} {{nanny.last_name}}</h3>
+                            <h6>Age: {{nanny.age}}</h6>
+                            <h6>Location: {{nanny.location}}</h6>
+                            <h6>Rate: {{nanny.rate}} ksh/hour</h6>
+                            <h6>Professional Skills: {% for pro_skills in nanny.pro_skills.all %}
+                                {{pro_skills}},
+                              {% endfor %}
+                            </h6>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="inner" style="margin:0 auto;">
+                          <p><a href="/book_nanny/{{nanny.id}}" class="btn btn-primary">Book Nanny</a></p>
+                        </div>
+
+                      </div>
+
+
+
+                      </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+          <!-- End of Modal -->
+
+          {% endfor%}
+
+
+
+        </div>
+      </div>
+    </div>
+
+  {% endif %}
+
+
+
+
+    <div class="site-footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h2 class="footer-heading mb-4">About</h2>
+            <p>At Nanny Connect, our mission is to provide professional, tailored and affordable babysitting services to create a stress-free experience for parents.</p>
+            <div class="my-5 social">
+              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-2">
+
+              </div>
+              <div class="col-lg-5">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+
+                  <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                  <li><a href="{% url 'about' %}">About Us</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-5">
+                <h2 class="footer-heading mb-4">Helpful Link</h2>
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'testimonial' %}">Testimonials</a></li>
+                  <li><a href="{% url 'index' %}">Contact Us</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div> <!-- .site-wrap -->
+
+{% endblock %}

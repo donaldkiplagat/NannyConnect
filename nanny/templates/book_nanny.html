@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+
+
+{% block content %}
+
+    <!-- MAIN -->
+
+
+
+    <div class="slide-item overlay" style="background-image: url('../static/images/slider-9.jpg'); background-color: rgba(0,0,0,0,1); height:40vh; min-height:2vh;" >
+      <div class="container" style="height:40vh; min-height:2vh;">
+        <div class="row justify-content-center text-center" style="height:50vh; min-height:2vh;" >
+          <div class="col-lg-6 align-self-center">
+            <p class="lead text-white mb-5">Below is a list of all the Nannies available based off of your filters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="site-section bg-default">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
+            <img src="{{nanny.image.url}}" alt="Image" class="img-fluid">
+          </div>
+          <div class="col-md-6 col-lg-5 ml-auto">
+            <div class="section-heading">
+              <h2 class="heading mb-3 text-black">{{nanny.first_name}} {{nanny.last_name}}</h2>
+
+              <p class="text-black"> <b>Age:</b> {{nanny.age}}</p>
+              <p class="mb-4 text-black"> <b>Location:</b> {{nanny.location}}</p>
+              <p class="mb-4 text-black"><b>Rate:</b> {{nanny.rate}}</p>
+              <p class="mb-4 text-black"><b>Minimum Hours:</b> {{nanny.min_hours}}</p>
+
+              <p class="mb-4 text-black"><b>Professional Skills</b> <br>
+                {% for pro_skills in nanny.pro_skills.all %}
+                  {{pro_skills}}<br>
+                {% endfor %}
+              </p>
+
+              <form method="post">
+                {%csrf_token%}
+              
+
+
+              </form>
+
+              <div class=text-center>
+              <p class="text-center mb-4 text-black"><b>Book {{nanny.first_name}} As Your Nanny of Choice</b> <br>
+
+
+                {{ form.render }}
+              </div>
+
+              <!-- <div class="inner" style="margin:0 auto;">
+                <p><a href="/book_nanny/{{nanny.id}}" class="btn btn-primary">Book Nanny</a></p>
+              </div> -->
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="site-footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <h2 class="footer-heading mb-4">About</h2>
+            <p>At Nanny Connect, our mission is to provide professional, tailored and affordable babysitting services to create a stress-free experience for parents.</p>
+            <div class="my-5 social">
+              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div class="row">
+              <div class="col-lg-2">
+
+              </div>
+              <div class="col-lg-5">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+
+                  <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                  <li><a href="{% url 'about' %}">About Us</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-5">
+                <h2 class="footer-heading mb-4">Helpful Link</h2>
+                <ul class="list-unstyled">
+                  <li><a href="{% url 'testimonial' %}">Testimonials</a></li>
+                  <li><a href="{% url 'index' %}">Contact Us</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div> <!-- .site-wrap -->
+
+{% endblock %}

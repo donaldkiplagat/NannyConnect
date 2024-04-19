@@ -1,1 +1,1 @@
-web: gunicorn upscale.wsgi
+web: gunicorn connect.wsgi

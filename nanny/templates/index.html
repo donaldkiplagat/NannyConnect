@@ -1,0 +1,355 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load bootstrap4 %}
+
+
+
+{% block content %}
+
+    <!-- MAIN -->
+
+
+    <div class="slide-item" style="background-image: url('./static/images/slider-1.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+            <h1 class="heading mb-3">Nanny Connect Program </h1>
+            <p class="lead text-white mb-5">Trusted, Experienced and Professional Babysitting in Kenya</p>
+            <p><a href="contact.html" class="btn btn-primary">Get In Touch</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="feature-v1">
+      <div class="d-lg-flex align-items-center w-100">
+        <div class="d-flex pagination-item  h-100">
+          <span class="icon-wrap">
+            <img src="./static/images/svg/svg/mother.png" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">Helping Mothers With Their Children</h3>
+          </div>
+        </div>
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="./static/images/svg/svg/baby-carriage.png" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">Children Care Services</h3>
+          </div>
+        </div>
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="./static/images/svg/svg/baby-diaper.png" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">Experienced Nannies</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center">
+          <div class="col-12 text-center">
+            <div class="heading">
+              <h2 class="text-black">Featured Nannies</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          {%for nanny in nannies %}
+
+          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3" >
+            <a href="#" class="d-block"  data-toggle="modal" data-target="#nanny-{{nanny.id}}">
+
+            <div class="service">
+              <!-- <a href="#" class="d-block">
+
+              </a> -->
+              <img src="{{nanny.image.url}}" alt="Image" class="img-fluid">
+              <div class="service-inner">
+                <h3>{{nanny.first_name}} {{nanny.last_name}}</h3>
+                <p>{{nanny.bio}}</p>
+
+              </div>
+            </div>
+          </a>
+
+          </div>
+
+
+          <!-- Modal  -->
+            <div class="modal fade" id="nanny-{{nanny.id}}" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-body" style="padding-top: 0em;">
+                    <div class="row">
+                        <div class="service">
+                          <a href="#" class="d-block"><img src="{{nanny.image.url}}" alt="Image" class="img-fluid"></a>
+                          <div class="service-inner">
+                            <h3>{{nanny.first_name}} {{nanny.last_name}}</h3>
+                            <h6>Age: {{nanny.age}}</h6>
+                            <h6>Location: {{nanny.location}}</h6>
+                            <h6>Rate: {{nanny.rate}} ksh/hour</h6>
+                            <h6>Professional Skills: {% for pro_skills in nanny.pro_skills.all %}
+                                {{pro_skills}},
+                              {% endfor %}
+                            </h6>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="modal-footer">
+                        <div class="inner" style="margin:0 auto;">
+                          <p><a href="/book_nanny/{{nanny.id}}" class="btn btn-primary">Book Nanny</a></p>
+                        </div>
+
+                      </div>
+
+
+
+                      </div>
+                  </div>
+
+
+                </div>
+              </div>
+
+          <!-- End of Modal -->
+
+
+          {% endfor %}
+
+
+        </div>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+    <div class="site-section bg-primary count-numbers">
+      <div class="container">
+        <div class="row">
+         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="counter-wrap text-center">
+            <strong class="counter d-block"><span class="number" data-number="60"></span></strong>
+            <span>Nannies Available</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="counter-wrap text-center">
+            <strong class="counter d-block"><span class="number" data-number="2"></span></strong>
+            <span>Services Offered</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="counter-wrap text-center">
+            <strong class="counter d-block"><span class="number" data-number="10"></span></strong>
+            <span>Areas Covered</span>
+          </div>
+        </div>
+        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
+          <div class="counter-wrap text-center">
+            <strong class="counter d-block"><span class="number" data-number="300"></span></strong>
+            <span>Happy People</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7">
+          <div class="section-heading">
+            <h2 class="heading mb-3">Kenya's Leading Babysitting Service</h2>
+            <p class="mb-5">Looking for a professional babysitter or nanny? Access one of the most trusted and experienced babysitting services in Kenya. Apart from the set services our nannies also offer these unique aspects that will make your experience worthwhile working with us:</p>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <img src="./static/images/img_3.jpg" alt="Image" class="img-fluid">
+              </div>
+              <div class="col-lg-6">
+                <ul class="list-unstyled ul-check primary">
+                  <li>Adaptability</li>
+                  <li>Integrity</li>
+                  <li>Understanding</li>
+                  <li>Advocacy</li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+
+          <div class="d-block custom-media algin-items-stretch">
+
+            <div class="img-bg" style="background-image: url('./static/images/img_2.jpg')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover overlay" style="background-image: url('./static/images/slider-2.jpg')">
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-7 mx-auto text-center align-self-center">
+          <h1 class="mb-5 heading">Our Goal is to Make Your Life Better</h1>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="feature">
+                <span class="img-wrap">
+                  <img src="./static/images/svg/svg/nanny.png" alt="Image" class="img-fluid">
+                </span>
+                <h3>Expert Nanny Staff</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="feature">
+                <span class="img-wrap">
+                  <img src="./static/images/svg/svg/mother2.png" alt="Image" class="img-fluid">
+                </span>
+                <h3>Caring Community</h3>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="feature">
+                <span class="img-wrap">
+                  <img src="./static/images/svg/svg/24hour.png" alt="Image" class="img-fluid">
+                </span>
+                <h3>Reliable Service</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="site-section bg-light">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+          <div class="testimonial text-center">
+            <img src="./static/images/person_4.jpg" alt="Image" class="img-fluid">
+            <blockquote>
+              <p class="quote">Thank you for sending Anne out to mind our young ladies the previous evening.  We express gratitude towards the Nanny Connect Program.</p>
+              <cite class="author">Eli Mwenda</cite>
+            </blockquote>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+          <div class="testimonial text-center">
+            <img src="./static/images/person_5.jpg" alt="Image" class="img-fluid">
+            <blockquote>
+              <p class="quote">Nabwire was benevolent and curious to take care of my children. Correspondence was extraordinary and consoling while I was out. Can hardly to wait to book again.  </p>
+              <cite class="author">Naisula</cite>
+            </blockquote>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5">
+          <div class="testimonial text-center">
+            <img src="./static/images/person_6.jpg" alt="Image" class="img-fluid">
+            <blockquote>
+              <p class="quote">The children were so eager to let me know how decent Anyango was the point at which they woke toward the beginning of the day. Thank you and much obliged.</p>
+              <cite class="author">Nekesa Robina</cite>
+            </blockquote>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="site-section bg-primary">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
+          <img src="./static/images/about.png" alt="Image" class="img-fluid">
+        </div>
+        <div class="col-md-6 col-lg-5 ml-auto">
+          <div class="section-heading">
+            <h2 class="heading mb-3 text-white">The Experienced Babysitter Kenyan Families Trust</h2>
+
+            <p class="text-white">Are you searching for excellent childcare services? At Nanny Connect Program, we offer a range of professional babysitting and nannying services to cater for any childcare needs. Our number one priority is the wellbeing of your little children. </p>
+            <p class="mb-4 text-white">We go above and beyond to create a safe environment and put a smile on their face. It’s no wonder we’re one of the top-rated babysitting agencies in Kenya!</p>
+            <p class="text-white mb-5"><strong class="h3">&ldquo;We care for mothers and their children&rdquo;</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <div class="site-footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2 class="footer-heading mb-4">About</h2>
+          <p>At Nanny Connect, our mission is to provide professional, tailored and affordable babysitting services to create a stress-free experience for parents.</p>
+          <div class="my-5 social">
+            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-2">
+
+            </div>
+            <div class="col-lg-5">
+              <h2 class="footer-heading mb-4">Quick Links</h2>
+              <ul class="list-unstyled">
+
+                <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5">
+              <h2 class="footer-heading mb-4">Helpful Link</h2>
+              <ul class="list-unstyled">
+                <li><a href="{% url 'testimonial' %}">Testimonials</a></li>
+                <li><a href="{% url 'index' %}">Contact Us</a></li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+
+{% endblock %}
